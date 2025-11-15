@@ -1,0 +1,19 @@
+cff-version: "1.2.0"
+message: "如果您使用了本仪器或代码，请按如下方式引用。"
+title: "Chirped-Pulse Microwave Spectrometer for Broadband Rotational Spectroscopy"
+authors:
+  - family-names: "Gao"        
+    given-names: "Zhiwen"         
+    orcid: "https://orcid.org/0000-0000-0000-0000"  # 可选，有就填
+abstract: "一款基于啁啾脉冲的宽带微波光谱仪，覆盖 2-18 GHz，适用于气相分子转动光谱快速表征。"
+keywords:
+  - chirped-pulse
+  - microwave spectroscopy
+  - rotational spectroscopy
+  - arbitrary waveform generator
+  - high-speed digitizer
+license: "MIT"                    # 或 GPL-3.0, Apache-2.0 等
+repository-code: "https://github.com/你的用户名/你的仓库名"
+version: "v1.0.0"                 # 推荐打一个 release tag
+date-released: 2025-11-15
+doi: "留空，后面 Zenodo 会自动填"
