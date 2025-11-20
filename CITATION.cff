@@ -4,8 +4,8 @@ authors:
 - family-names: "Gao"
   given-names: "Zhiwen"
   orcid: "https://orcid.org/0009-0003-5829-1779"
-title: "Chirped-pluse-get-and-put"
+title: "Broadband Microwave Spectroscopy Instrumentation Interface"
 version: 1.0.0
-doi: 10.5281/zenodo.1234
+doi: 
 date-released: 2025-11-15
 url: "https://github.com/ApheLions/Chirped-pluse-get-and-put"
