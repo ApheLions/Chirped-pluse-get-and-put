@@ -1,5 +1,5 @@
 
-import faster_FFT_for_single_wave_cxl_update as FFT
+import Faster_FFT as FFT
 import sys
 import numpy as np
 import time
@@ -7,7 +7,7 @@ from spectrum_plot import plotter
 import matplotlib.pyplot as plt
 time_start = time.perf_counter()
 
-t_domain_file=r"C:\Users\mw304\Desktop\awg\shiyu\time_domain_1frame.txt"
+t_domain_file=r""  ######
 
 try:#用于其他脚本调用，如average_and_FFT.py
     t_domain_file =sys.argv[1]
@@ -105,3 +105,4 @@ np.savetxt(save_filename, out, delimiter='\t')
 time_end = time.perf_counter()
 
 print(f"程序运行时间：{time_end - time_start} 秒")
+
