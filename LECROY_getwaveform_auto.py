@@ -13,7 +13,7 @@ import sys
 import tkinter as tk
 from tkinter.scrolledtext import ScrolledText
 from tkinter import font
-visaResourceAddr = 'TCPIP::192.168.137.6::inst0::INSTR'
+visaResourceAddr = 'TCPIP::192.168.137.6::inst0::INSTR'  ###ip
 
 os = TeledyneLeCroyPy.LeCroyWaveRunner(visaResourceAddr)
 
@@ -133,4 +133,5 @@ def main():
 if __name__ == "__main__":
     print(f"当前保存文件夹 : {save_file_dir} ")
     main()
+
 
