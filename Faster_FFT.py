@@ -18,9 +18,9 @@ sampling_rate = 25E9  # GS/s uncomment this line to switch to 2-8
 # sampling_rate = 50E9  # GS/s uncomment this line to switch to 8-16
 # sampling_rate = 80E9
 #################################
-file_path = r"E:\Data\250503_CH2I2+O2+SO2\+H2O\250503_CH2I2+O2+SO2+H2O_1200V_helm_Ne_960us_delay_(0-410w)average.txt"
+file_path = r""
 #################################
-# str='newos'
+
 
 ##################################
 try:#用于其他脚本调用，如average_and_FFT.py
@@ -32,30 +32,12 @@ except IndexError:
 #################################
 
 
-# is_newocs=0
-# if 'newos' in file_path:
-#     is_newocs=1
-#     sampling_rate = 80E9
-#     print('sampling_rate'+' : '+str(sampling_rate))
-# # s=input()
+
 
 
 def FFT(file_path, FID_start=0.0, FID_stop=999.9, save_suffix='_FFT', no_window=False, zero_padding=0, interp=False, max_rows=None):
-    # if save_suffix, then save else not save
     directory = os.path.dirname(file_path)
     file_name_ = os.path.basename(file_path)
-
-    # if is_newocs:   ####################for SDA ocs read file
-
-        # with open(file_path, 'r') as f:  # 打开文件并跳过前5行
-        #     pr_text=15
-        #     print("跳过前"+str(pr_text)+'行')
-        #     for _ in range(pr_text):
-        #         next(f)
-        #
-        #     times,signal=np.loadtxt(f,  delimiter=',',usecols=(0, 1), unpack=True)
-        # times, signal = np.loadtxt(file_path, delimiter=' ', usecols=(0, 1), unpack=True)
-    # else:
     with open(file_path) as f:
         signal = np.loadtxt(f, usecols=-1, max_rows=max_rows)
     times=np.loadtxt(file_path,usecols=(0,))
@@ -86,10 +68,8 @@ def FFT(file_path, FID_start=0.0, FID_stop=999.9, save_suffix='_FFT', no_window=
         print(save_filename)
     return freqs, ft
 
-
 def FFT_array(signal, FID_start=0.0, FID_stop=999.9, no_window=False, zero_padding=0, interp=False,newosfreqin6to18=0,start_freq=4800,end_freq=19000,orsampling_rate=0):
     """
-
     :param signal:
     :param FID_start:
     :param FID_stop:
@@ -134,25 +114,11 @@ def FFT_array(signal, FID_start=0.0, FID_stop=999.9, no_window=False, zero_paddi
     freq = (scipy.fftpack.fftfreq(np.size(signal), 1 / (sampling_rate * sampling_rate_factor))) / 1E6
 
 
-    # if sampling_rate<30E9 or sampling_rate>70E9:
-    #     start_freq = 2000
-    #
-    #     end_freq = 10000
-    # if newosfreqin6to18:
-    #     start_freq = 6000
-    #
-    #     end_freq = 20000
-
-
     freq_spacing = (freq[100] - freq[0]) / 100
     start_idx, end_idx = round(start_freq/freq_spacing), round(end_freq/freq_spacing)
     freqs = freq[start_idx: end_idx]
     ft = fft[start_idx: end_idx]
 
-    # for i, row in enumerate(freq):
-    #     if row >= 2000 and row <= 10000:
-    #         freqs.append(row)
-    #         ft.append(fft[i])
 
     return freqs, ft
 
@@ -170,3 +136,4 @@ if __name__ == '__main__':
     graph.show()
     # plt.xlim((5249.94, 5250.14))
     print("Check for plot, data has finished saving")
+
